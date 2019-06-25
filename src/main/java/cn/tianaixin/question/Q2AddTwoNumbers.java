@@ -12,11 +12,32 @@ public class Q2AddTwoNumbers {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        Integer num1 = getNumFromNode(l1);
-        Integer num2 = getNumFromNode(l2);
+        int carry = 0;
 
-        Integer res = num1 + num2;
-        return new ListNode(res);
+        ListNode resNode = new ListNode(0);
+        ListNode thisNode = resNode;
+        while (l1 != null || l2 != null) {
+            Integer v1 = (l1 == null) ? 0 : l1.val;
+            Integer v2 = (l2 == null) ? 0 : l2.val;
+
+            Integer sum = v1 + v2 + carry;
+            thisNode.val = sum % 10;
+
+            carry = sum / 10;
+            if (l1.next != null || carry == 1) {
+                thisNode.next = new ListNode(0);
+                thisNode = thisNode.next;
+            }
+
+            l1 = l1.next;
+            l2 = l2.next;
+        }
+
+        if (carry == 1) {
+            thisNode.next = new ListNode(1);
+        }
+
+        return resNode;
     }
 
     private Integer getNumFromNode(ListNode listNode) {
