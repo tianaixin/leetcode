@@ -1,16 +1,16 @@
-package cn.tianaixin.question.q1;
+package cn.tianaixin.question;
 
 import java.util.HashMap;
 
 /**
  * 1. 数组初始化方式
  */
-public class TwoSum {
+public class Q1TwoSum {
     public static void main(String[] args) {
-        int nums[] = {1,3,3,3,4};
+        int nums[] = {1,3,2,4};
         int target = 6;
 
-        TwoSum twoSum = new TwoSum();
+        Q1TwoSum twoSum = new Q1TwoSum();
         int[] res = twoSum.twoSum(nums, target);
         for (int i = 0; i < res.length; i++) {
             System.out.println(res[i]);
