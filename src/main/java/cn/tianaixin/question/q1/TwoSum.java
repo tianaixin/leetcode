@@ -30,6 +30,11 @@ public class TwoSum {
             int y = target - x;
 
             if (map.containsKey(y)) {
+                int secondIndex = map.get(y);
+                if (i == secondIndex) {
+                    continue;
+                }
+
                 a[0] = i;
                 a[1] = map.get(y);
                 return a;
